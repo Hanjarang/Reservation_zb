@@ -1,5 +1,6 @@
 package com.example.reservation.controller;
 
+import com.example.reservation.dto.ReviewDto;
 import com.example.reservation.model.Review;
 import com.example.reservation.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +16,8 @@ public class ReviewController {
     private ReviewService reviewService;
 
     @PostMapping
-    public void addReview(@RequestParam Long reservationId,
-                          @RequestParam Long userId,
-                          @RequestParam String text) {
-        reviewService.addReview(reservationId, userId, text);
+    public void addReview(@RequestBody ReviewDto reviewDto) {
+        reviewService.addReview(reviewDto.getReservationId(), reviewDto.getUserId(), reviewDto.getContent());
     }
 
     @GetMapping("/{reservationId}")
