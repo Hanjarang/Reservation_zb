@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -24,6 +26,10 @@ public class Review {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(length = 1000) // 리뷰 내용이 길어질 수 있으니 길이를 충분히 설정
+    @ManyToOne
+    @JoinColumn(name = "store_id")
+    private Store store;
+
     private String text;
+    private LocalDateTime createdAt;
 }

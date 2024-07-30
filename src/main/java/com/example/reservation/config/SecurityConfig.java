@@ -24,6 +24,7 @@ public class SecurityConfig {
                         .requestMatchers("/store/list", "/store/list/**").permitAll()
                         .requestMatchers("/reservation/**").authenticated() // 로그인된 사용자만 접근 가능
                         .requestMatchers("/user/**").permitAll()
+                        .requestMatchers("/review/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(httpBasic -> {});
