@@ -17,7 +17,7 @@ public class ReviewController {
 
     @PostMapping
     public void addReview(@RequestBody ReviewDto reviewDto) {
-        reviewService.addReview(reviewDto.getReservationId(), reviewDto.getUserId(), reviewDto.getContent());
+        reviewService.addReview(reviewDto.getReservationId(), reviewDto.getUserId(), reviewDto.getText());
     }
 
     @GetMapping("/reservation/{reservationId}")

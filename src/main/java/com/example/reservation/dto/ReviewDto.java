@@ -8,5 +8,5 @@ import lombok.Setter;
 public class ReviewDto {
     private Long userId;
     private Long reservationId;
-    private String content;
+    private String text;
 }

@@ -30,6 +30,8 @@ public class Review {
     @JoinColumn(name = "store_id")
     private Store store;
 
+    @Column(name = "text")
     private String text;
+
     private LocalDateTime createdAt;
 }
