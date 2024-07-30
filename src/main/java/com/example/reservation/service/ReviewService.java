@@ -46,8 +46,8 @@ public class ReviewService {
     public List<Review> getReviewsByReservation(Long reservationId) {
         return reviewRepository.findByReservationId(reservationId);
     }
+
     public List<Review> getReviewsByStore(Long storeId) {
         return reviewRepository.findByStoreId(storeId);
     }
-
 }
