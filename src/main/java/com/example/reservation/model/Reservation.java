@@ -27,4 +27,12 @@ public class Reservation {
     private User user;
 
     private LocalDateTime reservationTime;
+    private boolean arrivalConfirmed;  // 도착 확인 상태
+
+    private boolean completed;         // 예약 완료 여부를 나타내는 필드
+
+    // 예약이 완료되었는지 여부를 반환하는 메소드
+    public boolean isCompleted() {
+        return completed;
+    }
 }
