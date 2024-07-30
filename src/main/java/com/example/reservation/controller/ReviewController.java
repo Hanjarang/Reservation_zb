@@ -20,12 +20,12 @@ public class ReviewController {
         reviewService.addReview(reviewDto.getReservationId(), reviewDto.getUserId(), reviewDto.getContent());
     }
 
-    @GetMapping("/{reservationId}")
+    @GetMapping("/reservation/{reservationId}")
     public List<Review> getReviewsByReservation(@PathVariable Long reservationId) {
         return reviewService.getReviewsByReservation(reservationId);
     }
 
-    @GetMapping("/{storeId}")
+    @GetMapping("/store/{storeId}")
     public List<Review> getReviewsByStore(@PathVariable Long storeId) {
         return reviewService.getReviewsByStore(storeId);
     }
