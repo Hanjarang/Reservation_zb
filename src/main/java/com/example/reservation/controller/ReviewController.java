@@ -20,16 +20,19 @@ public class ReviewController {
     @Autowired
     private StoreService storeService;
 
+    // 리뷰 작성
     @PostMapping
     public void addReview(@RequestBody ReviewDto reviewDto) {
         reviewService.addReview(reviewDto.getReservationId(), reviewDto.getUserId(), reviewDto.getText());
     }
 
+    // 가게 예약 ID로 리뷰 조회하기 (리뷰 작성자 본인 확인용)
     @GetMapping("/reservation/{reservationId}")
     public List<Review> getReviewsByReservation(@PathVariable Long reservationId) {
         return reviewService.getReviewsByReservation(reservationId);
     }
 
+    // 해당 가게의 모든 리뷰 조회하기 (가게아이디로)
     @GetMapping("/list/{storeId}")
     public ResponseEntity<Object> getReviewsByStoreId(@PathVariable Long storeId) {
         List<Review> reviews = reviewService.getReviewsByStore(storeId);
