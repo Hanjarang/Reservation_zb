@@ -5,6 +5,7 @@ import com.example.reservation.model.Review;
 import com.example.reservation.model.User;
 import com.example.reservation.repository.ReservationRepository;
 import com.example.reservation.repository.ReviewRepository;
+import com.example.reservation.repository.StoreRepository;
 import com.example.reservation.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,6 +39,7 @@ public class ReviewService {
         Review review = new Review();
         review.setReservation(reservation);
         review.setUser(user);
+        review.setStoreId(reservation.getStore().getId()); // Store 객체 대신 storeId를 설정
         review.setText(text);
 
         reviewRepository.save(review);
@@ -48,6 +50,6 @@ public class ReviewService {
     }
 
     public List<Review> getReviewsByStore(Long storeId) {
-        return reviewRepository.findByStoreId(storeId);
+        return reviewRepository.findByStoreId(storeId); // storeId로 조회
     }
 }

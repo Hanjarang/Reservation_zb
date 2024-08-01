@@ -6,8 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 @Getter
 @Setter
 @NoArgsConstructor
@@ -26,12 +24,10 @@ public class Review {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "store_id")
-    private Store store;
+    @Column(name = "store_id")
+    private Long storeId;
 
     @Column(name = "text")
     private String text;
 
-    private LocalDateTime createdAt;
 }
